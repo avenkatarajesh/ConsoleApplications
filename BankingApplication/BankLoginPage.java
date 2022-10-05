@@ -5,19 +5,21 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class BankLoginPage {
+	Scanner scan = new Scanner(System.in);
 	static Map<String, Customer> customerMap = new HashMap<>();
 
 	public BankLoginPage() {
 		customerMap = new HashMap<String, Customer>();
 	}
 
-	public static void main(String[] args) {
-		Scanner scan = new Scanner(System.in);
+	public void display() throws InterruptedException {
+
 		Customer customer;
 		String userName, password;
 		double amount = 0;
 		BankLoginPage bank = new BankLoginPage();
 		outer: while (true) {
+			Thread.sleep(2000);
 			System.out.println("      Welcome to R Bank");
 			System.out.println(" 1. Existing Customer.");
 			System.out.println(" 2. New Customer.");
@@ -138,7 +140,11 @@ public class BankLoginPage {
 				System.out.println("Invalid Try Again.");
 			}
 		}
-		scan.close();
+	}
+
+	public static void main(String[] args) throws InterruptedException {
+		BankLoginPage blp = new BankLoginPage();
+		blp.display();
 	}
 
 }
