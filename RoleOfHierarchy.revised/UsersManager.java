@@ -1,9 +1,6 @@
-package controler;
+package model;
 
 import java.util.ArrayList;
-
-import model.Role;
-import model.User;
 
 public class UsersManager {
 
@@ -40,15 +37,14 @@ public class UsersManager {
 
 	public ArrayList<User> searchUser(String name) {
 		ArrayList<User> returnUser = new ArrayList<>();
-		for(int i = 0 ; i < UsersManager.getInstance().usersList.size() ; i++ ) {
-			if( UsersManager.getInstance().usersList.get(i).getUserName().equalsIgnoreCase(name)) {
+		for (int i = 0; i < UsersManager.getInstance().usersList.size(); i++) {
+			if (UsersManager.getInstance().usersList.get(i).getUserName().equalsIgnoreCase(name)) {
 				returnUser.add(UsersManager.getInstance().usersList.get(i));
 			}
 		}
 		return returnUser;
 	}
 
-	
 	public User searchUser(Role role) {
 		for (User us : usersList) {
 			if (us.getUserRole() == role) {

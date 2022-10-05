@@ -1,11 +1,11 @@
-package controler;
-import model.Role;
+package model;
+
 import java.util.ArrayList;
 
 public class RolesManager {
 
 	public Role rootRole;
-	private static final  ArrayList<Role> ROLES = new ArrayList<Role>();
+	private static final ArrayList<Role> ROLES = new ArrayList<Role>();
 	private static final RolesManager ROLE_MANAGER = new RolesManager();
 
 	public static RolesManager getRolesManager() {
