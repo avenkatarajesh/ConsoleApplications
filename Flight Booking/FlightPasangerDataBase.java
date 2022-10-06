@@ -38,11 +38,13 @@ public class FlightPasangerDataBase {
 	public void addFlight(Flight f) {
 		setFlight(f);
 	}
-	
+
 	public void flightDetails() {
-		System.out.println("FlightID   FlightCapacity    From       To       TicketCost");
-		for(int i =0 ; i<flightList.size() ; i++) {
-		System.out.println(flightList.get(i).getFlightId()+"          "+flightList.get(i).getCapacity()+"                "+flightList.get(i).getPlaceFrom()+"    "+flightList.get(i).getPlaceTo()+"    "+flightList.get(i).getTicketPrice());
+		System.out.printf("%-9s %-16s  %-10s  %-10s %6s \n", "FlightID", "AvailableTicket", "From", "To", "TicketCost");
+		for (int i = 0; i < flightList.size(); i++) {
+			System.out.printf("   %-9s   %-9s    %-10s  %-10s %6s \n", flightList.get(i).getFlightId(),
+					flightList.get(i).getCapacity(), flightList.get(i).getPlaceFrom(), flightList.get(i).getPlaceTo(),
+					flightList.get(i).getTicketPrice());
 		}
 	}
 

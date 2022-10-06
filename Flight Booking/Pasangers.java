@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 
 public class Pasangers {
 	private static int ID = 1;
@@ -6,6 +7,8 @@ public class Pasangers {
 	private int age;
 	private int numOfTickets;
 	private int flightId;
+	private double ticketCost;
+	private ArrayList<Pasangers> passengerList ;
 	public Pasangers() {
 
 	}
@@ -18,6 +21,16 @@ public class Pasangers {
 		this.age = age;
 		this.numOfTickets = numOfTickets;
 		this.flightId = fligthId;
+	}
+	public Pasangers(String pasangerName, int age, int numOfTickets , int fligthId ,ArrayList<Pasangers> coPasanger ) {
+		super();
+		PasangerID = ID;
+		ID = ID + 1;
+		this.pasangerName = pasangerName;
+		this.age = age;
+		this.numOfTickets = numOfTickets;
+		this.flightId = fligthId;
+		this.passengerList = coPasanger;
 	}
 
 	public int pasangerId() {
@@ -55,5 +68,21 @@ public class Pasangers {
 	public void setFlightId(int flightId) {
 		this.flightId = flightId;
 	}
+	public double getTicketCost() {
+		return ticketCost;
+	}
+
+	public void setTicketCost(double ticketCost) {
+		this.ticketCost = ticketCost;
+	}
+
+	public ArrayList<Pasangers> getCoPasanger() {
+		return passengerList;
+	}
+
+	public void setCoPasanger(ArrayList<Pasangers> coPasanger) {
+		this.passengerList = coPasanger;
+	}
+
 
 }

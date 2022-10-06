@@ -1,21 +1,32 @@
+import java.time.LocalDateTime;
+
 public class Flight {
-	private static int Id=1;
+	private static int Id = 1;
 	private int flightID;
 	private int capacity;
 	private double ticketPrice;
 	private String placeFrom;
 	private String placeTo;
-	
-	public Flight( String from , String to , double price) {
+	private LocalDateTime travelTime;
+
+	public Flight(String from, String to, double price) {
 		super();
-		flightID=Id;
+		flightID = Id;
 		capacity = 50;
 		ticketPrice = price;
 		Id++;
 		placeFrom = from;
 		placeTo = to;
 	}
-	
+
+	public LocalDateTime getTravelTime() {
+		return travelTime;
+	}
+
+	public void setTravelTime(LocalDateTime travelTime) {
+		this.travelTime = travelTime;
+	}
+
 	public String getPlaceFrom() {
 		return placeFrom;
 	}
@@ -51,6 +62,5 @@ public class Flight {
 	public void setTicketPrice(double ticketPrice) {
 		this.ticketPrice = ticketPrice;
 	}
-	
-	
+
 }
