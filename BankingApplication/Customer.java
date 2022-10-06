@@ -13,14 +13,6 @@ public class Customer {
 	public String passWord;
 	ArrayList<String> transaction = new ArrayList<>();
 
-	public ArrayList<String> getTransaction() {
-		return transaction;
-	}
-
-	public void setTransaction(String t) {
-		transaction.add(t);
-	}
-
 	public Customer(String cusName, long accNum, String accType, double accBalance, String phoneNo, String passWord) {
 		this.cusName = cusName;
 		this.accNum = accNum;
@@ -90,6 +82,15 @@ public class Customer {
 		System.out.println("Account Type :" + accType);
 		System.out.println("Available Balance : " + accBalance);
 		System.out.println("Phone no. " + phoneNo);
+	}
+	
+
+	public ArrayList<String> getTransaction() {
+		return transaction;
+	}
+
+	public void setTransaction(String t) {
+		transaction.add(t);
 	}
 
 	@Override

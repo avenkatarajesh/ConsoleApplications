@@ -17,10 +17,15 @@ public class BankLoginPage {
 		Customer customer;
 		String userName, password;
 		double amount = 0;
-		BankLoginPage bank = new BankLoginPage();
+		BankLoginPage bankLogin = new BankLoginPage();
 		outer: while (true) {
-			Thread.sleep(2000);
-			System.out.println("      Welcome to R Bank");
+			System.out.print("Loading.");
+			for (int index = 0; index < 5; index++) {
+				System.out.print(".");
+				Thread.sleep(750);
+			}
+			System.out.println();
+			System.out.println("<<< ! Welcome to R Bank ! >>>");
 			System.out.println(" 1. Existing Customer.");
 			System.out.println(" 2. New Customer.");
 			System.out.println(" 3. About us.");
@@ -35,10 +40,15 @@ public class BankLoginPage {
 				scan.nextLine();
 				System.out.println("Enter PassWord : ");
 				password = scan.next();
-				if (bank.customerMap.containsKey(userName)) {
-					customer = bank.customerMap.get(userName);
+				if (bankLogin.customerMap.containsKey(userName)) {
+					customer = bankLogin.customerMap.get(userName);
 					if (customer.passWord.equals(password)) {
 						inner: while (true) {
+							System.out.print("Loading.");
+							for (int index = 0; index < 5; index++) {
+								System.out.print(".");
+								Thread.sleep(750);
+							}
 							System.out.println("WELCOME " + customer.getCusName());
 							System.out.println("1. Money WithDraw");
 							System.out.println("2. Money Deposit");
@@ -97,14 +107,14 @@ public class BankLoginPage {
 					System.out.print("Enter Your Phone No. :");
 					String phoneNo = scan.next();
 					System.out.print("Enter Account Type(Saving / current) : ");
-					String type = scan.next();
+					String accType = scan.next();
 					scan.nextLine();
 					System.out.println("Enter the Amount to intial deposit : ");
 					amount = scan.nextDouble();
 					scan.nextLine();
 					System.out.println("Set UserName :");
 					userName = scan.next();
-					while (bank.customerMap.containsKey(userName)) {
+					while (bankLogin.customerMap.containsKey(userName)) {
 						System.out.println("User Name Already exist. Try Again");
 						System.out.println("Set UserName :");
 						userName = scan.next();
@@ -117,10 +127,10 @@ public class BankLoginPage {
 						System.out.println("Password Not Satisfied the Condtion. Try Again.");
 						password = scan.next();
 					}
-					Bank_Management newCustomer = new Bank_Management(name, type, amount, phoneNo, password);
+					Bank_Management newCustomer = new Bank_Management(name, accType, amount, phoneNo, password);
 					newCustomer.accountDetails();
 					customer = newCustomer.getCustomer();
-					bank.customerMap.put(userName, customer);
+					bankLogin.customerMap.put(userName, customer);
 					System.out.println("Account Created SuccessFully");
 					break;
 				} else {
@@ -143,8 +153,8 @@ public class BankLoginPage {
 	}
 
 	public static void main(String[] args) throws InterruptedException {
-		BankLoginPage blp = new BankLoginPage();
-		blp.display();
+		BankLoginPage bLP = new BankLoginPage();
+		bLP.display();
 	}
 
 }
