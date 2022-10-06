@@ -78,13 +78,13 @@ public class Calculation {
 		if (para) {
 			if (eq.charAt(0) == 42 || eq.charAt(0) == 43 || eq.charAt(0) == 45 || eq.charAt(0) == 47)
 				return false;
-			for (int i = 0; i < eq.length(); i++) {
-				char ch = eq.charAt(i);
-				if (ch > 47 && ch < 58 || ch == '(' || ch == ')') {
+			for (int index = 0; index < eq.length(); index++) {
+				char operator = eq.charAt(index);
+				if (operator > 47 && operator < 58 || operator == '(' || operator == ')') {
 					continue;
-				} else if (ch == 42 || ch == 43 || ch == 45 || ch == 47) {
-					char ch1 = eq.charAt(i - 1);
-					if (ch == ch1) {
+				} else if (operator == 42 || operator == 43 || operator == 45 || operator == 47) {
+					char operator2 = eq.charAt(index - 1);
+					if (operator == operator2) {
 						return false;
 					}
 				} else {
@@ -96,31 +96,31 @@ public class Calculation {
 	}
 
 	public String evaluating(String exp ) {
-		int i = 0;
+		int iterate = 0;
 		String result = "";
 		int operand1 = 0;
-		while (exp.charAt(i) > 47 && exp.charAt(i) < 58 && i < exp.length()) {
+		while (exp.charAt(iterate) > 47 && exp.charAt(iterate) < 58 && iterate < exp.length()) {
 			operand1 *= 10;
-			operand1 += exp.charAt(i) - 48;
-			if (i + 1 < exp.length()) {
-				i++;
+			operand1 += exp.charAt(iterate) - 48;
+			if (iterate + 1 < exp.length()) {
+				iterate++;
 			} else {
 				break;
 			}
 		}
-		char ch = exp.charAt(i++);
+		char operator = exp.charAt(iterate++);
 		int operand2 = 0;
-		while (exp.charAt(i) > 47 && exp.charAt(i) < 58 && i < exp.length()) {
+		while (exp.charAt(iterate) > 47 && exp.charAt(iterate) < 58 && iterate < exp.length()) {
 			operand2 *= 10;
-			operand2 += exp.charAt(i) - 48;
-			if (i + 1 < exp.length()) {
-				i++;
+			operand2 += exp.charAt(iterate) - 48;
+			if (iterate + 1 < exp.length()) {
+				iterate++;
 			} else {
 				break;
 			}
 		}
 		int ans = 0;
-		switch (ch) {
+		switch (operator) {
 		case '+':
 			ans = operand1 + operand2;
 			break;
@@ -135,19 +135,19 @@ public class Calculation {
 			break;
 		}
 		result = Integer.toString(ans);
-		if(exp.length()-1 > i ){
-			String s = result;
-			s += exp.substring(i);
-			result = evaluating(s);
+		if(exp.length()-1 > iterate ){
+			String pushAns = result;
+			pushAns += exp.substring(iterate);
+			result = evaluating(pushAns);
 		}
 		return result;
 	}
 
 	public static void main(String[] args) {
-		Calculation cal = new Calculation();
-		String equation = cal.display();
-		if (cal.isValid(equation)) {
-			System.out.println(cal.calculate(equation));
+		Calculation calculate = new Calculation();
+		String equation = calculate.display();
+		if (calculate.isValid(equation)) {
+			System.out.println(calculate.calculate(equation));
 		} else {
 			System.out.println("Invalid expression");
 		}
