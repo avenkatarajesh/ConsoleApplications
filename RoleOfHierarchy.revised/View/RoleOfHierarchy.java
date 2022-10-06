@@ -6,69 +6,62 @@ import controler.ManageRoleController;
 import controler.ManageUserController;
 
 public class RoleOfHierarchy {
+
 	static Scanner scan = new Scanner(System.in);
+	ManageRoleController mrc = new ManageRoleController();
+	ManageUserController muc = new ManageUserController();
 
 	public static void main(String[] args) throws Exception {
 		RoleOfHierarchy Roletree = new RoleOfHierarchy();
 		Roletree.gettingRootRole();
 	}
 
-	public ManageRoleController getInstance() {
-		ManageRoleController mrc = new ManageRoleController();
-		return mrc;
-	}
-
 	public void gettingRootRole() throws Exception {
-		ManageRoleController mrc = new ManageRoleController();
 		mrc.setRootRole();
 		operation();
 	}
 
 	public void addSubRole() throws Exception {
-		ManageRoleController mrc = new ManageRoleController();
 		mrc.setSubRole();
 		operation();
 	}
 
 	public void displayRoles() throws Exception {
-		ManageRoleController mrc = new ManageRoleController();
 		mrc.totalRoles();
 		operation();
 	}
 
 	public void deleteRoles() throws Exception {
-		ManageRoleController mrc = new ManageRoleController();
 		mrc.removeRole();
 		operation();
 	}
 
 	public void addUser() throws Exception {
-		ManageUserController muc = new ManageUserController();
 		muc.setUser();
 		operation();
 	}
 
 	public void displayUser() throws Exception {
-		ManageUserController muc = new ManageUserController();
 		muc.showUsers();
 		operation();
 	}
 
 	public void displayUserAndSubUser() throws Exception {
-		ManageUserController muc = new ManageUserController();
 		muc.allUsers();
 		operation();
 	}
 
 	public void deleteUsers() throws Exception {
-		ManageUserController muc = new ManageUserController();
 		muc.removeUser();
 		operation();
 	}
 
 	public void operation() throws Exception {
-		System.out.println("Loading....");
-		Thread.sleep(2000);
+		System.out.print("Loading.");
+		for(int index = 0 ; index < 3 ; index++) {
+			System.out.print(".");
+			Thread.sleep(750);
+		}
 		System.out.println();
 		int choice = 0;
 		System.out.println("Operation to be performed.");
@@ -83,7 +76,6 @@ public class RoleOfHierarchy {
 //		System.out.println("(9) Height of Role Hierarchy.");
 //		System.out.println("(10) Common boss of users");
 		System.out.println("(0) Exit.");
-
 		choice = scan.nextInt();
 		switch (choice) {
 		case 1:
@@ -125,15 +117,15 @@ public class RoleOfHierarchy {
 		}
 	}
 
-	public void commonBossOfUsers() {
-
-	}
-
-	public void heightOfRoleHierarchy() {
-
-	}
-
-	public void numberOfUserFromTop() {
-	}
+//	public void commonBossOfUsers() {
+//
+//	}
+//
+//	public void heightOfRoleHierarchy() {
+//
+//	}
+//
+//	public void numberOfUserFromTop() {
+//	}
 
 }
