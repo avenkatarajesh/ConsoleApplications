@@ -1,11 +1,6 @@
 package model;
 
 public class User {
-	@Override
-	public String toString() {
-		return "User [userName=" + userName + ", userRole=" + userRole + ", iD=" + iD + "]";
-	}
-
 	private String userName;
 	private Role userRole;
 	private int iD;
@@ -41,5 +36,11 @@ public class User {
 	public void setUserRole(Role role) {
 		this.userRole = role;
 	}
+	
+	@Override
+	public String toString() {
+		return "User [userName=" + userName + ", userRole=" + userRole + ", iD=" + iD + "]";
+	}
+
 
 }

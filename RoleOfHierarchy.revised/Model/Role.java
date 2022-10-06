@@ -1,11 +1,6 @@
 package model;
 import java.util.ArrayList;
 public class Role {
-	@Override
-	public String toString() {
-		return "Role [roleName=" + roleName + "]";
-	}
-
 	private String roleName;
 	private Role reportingTo;
 	private Boolean root;
@@ -47,4 +42,10 @@ public class Role {
 	public void addSubordinateRoles(ArrayList<Role> subRoles) {
 		this.subOrdinateRoles.addAll(subRoles);
 	}
+	
+	@Override
+	public String toString() {
+		return "Role [roleName=" + roleName + "]";
+	}
+
 }

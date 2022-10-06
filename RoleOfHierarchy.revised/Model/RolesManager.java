@@ -29,9 +29,9 @@ public class RolesManager {
 	}
 
 	public Role searchRole(String roleName) {
-		for (int i = 0; i < ROLES.size(); i++) {
-			if (ROLES.get(i).getName().equals(roleName)) {
-				return ROLES.get(i);
+		for (int index = 0; index < ROLES.size(); index++) {
+			if (ROLES.get(index).getName().equals(roleName)) {
+				return ROLES.get(index);
 			}
 		}
 		return null;
