@@ -36,8 +36,8 @@ public class ManageUserController {
 			if (displayingUser.size() == 0) {
 				System.out.println("User not setuped");
 			}
-			for (User us : displayingUser) {
-				System.out.println(us.getUserName() + " - " + us.getUserRole().getName());
+			for (User user : displayingUser) {
+				System.out.println(user.getUserName() + " - " + user.getUserRole().getName());
 			}
 		}
 		System.out.println("Done.");
@@ -58,8 +58,8 @@ public class ManageUserController {
 			} else {
 				System.out.println("Enter the Id :");
 				int iD = scan.nextInt();
-				for (User us : userList) {
-					if (us.getiD() == iD) {
+				for (User user : userList) {
+					if (user.getiD() == iD) {
 						UsersManager.getInstance().remove(iD);
 						System.out.println("Success fully Removed.");
 						break;
@@ -75,11 +75,11 @@ public class ManageUserController {
 			System.out.println("User not setup");
 		} else {
 			ArrayList<Role> displayingRoles = RolesManager.getRolesManager().getRoles();
-			for (int i = 0; i < displayingRoles.size(); i++) {
-				ArrayList<Role> roles = displayingRoles.get(i).getSubOrdinateRoles();
-				User head = UsersManager.getInstance().searchUser(displayingRoles.get(i));
-				if (head != null) {
-					String userName = head.getUserName();
+			for (int index = 0; index < displayingRoles.size(); index++) {
+				ArrayList<Role> roles = displayingRoles.get(index).getSubOrdinateRoles();
+				User mainUser = UsersManager.getInstance().searchUser(displayingRoles.get(index));
+				if (mainUser != null) {
+					String userName = mainUser.getUserName();
 					System.out.print(userName + " - ");
 					for (int j = 0; j < roles.size(); j++) {
 						User user = UsersManager.getInstance().searchUser(roles.get(j));
@@ -87,7 +87,7 @@ public class ManageUserController {
 							System.out.print(user.getUserName());
 						}
 						if (j < roles.size() - 1) {
-							System.out.print(" ,");
+							System.out.print(", ");
 						}
 					}
 					System.out.print(".");

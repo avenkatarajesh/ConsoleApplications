@@ -13,9 +13,9 @@ public class ManageRoleController {
 	
 	public void setRootRole() {
 		System.out.println("Enter the root role name :");
-		Role role1 = new Role(scan.next(), true);
-		RolesManager.getRolesManager().setRootRole(role1);
-		RolesManager.getRolesManager().addRole(role1);
+		Role rootRole = new Role(scan.next(), true);
+		RolesManager.getRolesManager().setRootRole(rootRole);
+		RolesManager.getRolesManager().addRole(rootRole);
 		System.out.println("Done.");
 	}
 	
@@ -67,8 +67,8 @@ public class ManageRoleController {
 				System.out.println("Role does not exists ,Try again");
 			} else {
 				ArrayList<Role> subordinates = searchedDeletingRole.getSubOrdinateRoles();
-				for (int i = 0; i < subordinates.size(); i++) {
-					subordinates.get(i).setReportingTo(searchedTransferRole);
+				for (int index = 0; index < subordinates.size(); index++) {
+					subordinates.get(index).setReportingTo(searchedTransferRole);
 				}
 				searchedTransferRole.addSubordinateRoles(subordinates);
 				User user = UsersManager.getInstance().searchUser(searchedDeletingRole);
